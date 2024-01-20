@@ -16,7 +16,7 @@
   </head>
   <body id="home">
     <header class="hero blog">
-      <div id="navbar" class="navbar">
+      <div id="navbar" class="navbar top">
         <h1 class="logo">
           <span class="text-primary"><i class="fas fa-book-open"></i> Edge</span
           >Ledger
@@ -44,7 +44,7 @@
           <i class="fas fa-user"></i> Posted by <strong>John Doe</strong> |
           April 19 2020
         </p>
-        <img src="img/blog/blog1.jpg" alt="blog imgs">
+        <img src="img/blog/blog1.jpg" alt="blog imgs" />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           dolores, fugiat quia at quaerat numquam ducimus cumque tempora sint
@@ -82,5 +82,26 @@
       </div>
       <p>Copyright &copy; 2020 - EdgeLedger</p>
     </footer>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      let scrolled = false;
+
+      window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+          navbar.classList.remove("top");
+          if (!scrolled) {
+            navbar.style.transform = "translateY(-70px)";
+          }
+          setTimeout(function () {
+            navbar.style.transform = "translateY(0)";
+            scrolled = true;
+          }, 500);
+        } else {
+          navbar.classList.add("top");
+          scrolled = false;
+        }
+      };
+    </script>
   </body>
 </html>
